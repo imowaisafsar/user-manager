@@ -1,0 +1,27 @@
+<p-card header="Login" subheader="Logi to your account" [style]="{width: '360px'}" styleClass="p-card-shadow">
+
+    <p-message severity="error" text="{{this.error}}"
+        *ngIf="this.error.name.trim() != '' && this.error.message.trim() != ''">
+    </p-message>
+
+    <form [formGroup]="this.form" (ngSubmit)="submitForm()" validateOnSubmit>
+        <div class="p-fluid grid">
+            <div class="field col-12 md:col-12" style="margin-top: 20px; margin-bottom: 10px;">
+                <span class="p-float-label">
+                    <input type="email" id="email" pInputText formControlName="email">
+                    <label for="email">Email</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-12" style="margin-top: 30px; margin-bottom: 20px;">
+                <span class="p-float-label">
+                    <p-password inputId="password" formControlName="password"></p-password>
+                    <label for="password">Password</label>
+                </span>
+            </div>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <p-button label="Login" icon="pi pi-lock-open" (onClick)="submitForm()"></p-button>
+    </ng-template>
+</p-card>

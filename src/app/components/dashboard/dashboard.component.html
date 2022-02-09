@@ -1,0 +1,8 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="videoService.formData.id" />
+    <input type="text" name="author" #author="ngModel" [(ngModel)]="videoService.formData.author" />
+    <input type="text" name="link" #link="ngModel" [(ngModel)]="videoService.formData.link" />
+    <input type="text" name="thumb" #thumb="ngModel" [(ngModel)]="videoService.formData.thumb" />
+    <input type="text" name="title" #title="ngModel" [(ngModel)]="videoService.formData.title" />
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
